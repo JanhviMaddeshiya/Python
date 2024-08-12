@@ -1,51 +1,57 @@
-#   Print the reverse order series  using a while loop
+# Write a python program to reverse a number using a while loop.
 
-a = 10
+def reverse_number(number):
+    reversed_number = 0
+    while number > 0:
+        digit = number % 10
+        reversed_number = reversed_number * 10 + digit
+        number = number // 10
+    return reversed_number
 
-while a >= 1:
-    print(a)
-    a -= 1
+number = 12345
+reversed_number = reverse_number(number)
+print("Reversed Number:", reversed_number)
 
-# Create a code that describe the use of break statement in while loop
 
-count = 0
+
+# Write a python program to check whether a number is palindrome or not?
+
+number = int(input("Enter a number: "))
+
+number_str = str(number)
+
+reversed_str = number_str[::-1]
+
+if number_str == reversed_str:
+    print(f"{number} is a palindrome.")
+else:
+    print(f"{number} is not a palindrome.")
+
+
+
+# Write a python program finding the factorial of a given number using a while loop
+
+number = int(input("Enter a number: "))
+
+factorial = 1
+
+current = number
+while current > 0:
+    factorial *= current
+    current -= 1
+
+print(f"The factorial of {number} is {factorial}.")
+
+
+
+# Accept numbers using input() function until the user enters 0. If user input 0 then break the while loop and display the sum of all the numbers.
+
+total_sum = 0
 
 while True:
-    count += 2
-    print("Counter:", count)
+    number = int(input("Enter a number (0 to stop): "))
+    if number == 0:
+        break
+    total_sum += number
 
-    if count == 10:
-        print("Counter has reached 5. Exiting the loop.")
-        break  
-
-
-# Write a Python program using a while loop to iterate through each character of the string "Python" and print each character on a new line. Additionally, calculate and print the length of the string.
-
-text = "Python"
-
-i = 0
-
-length = len(text)
-
-while i < length:
-    print(text[i])
-    i += 1
-
-print("Length of the string:", length)
-
-# Write a Python program that takes an integer input from the user and calculates its factorial using a while loop. Display the result as the factorial of the entered number.
-
-def factorial(n):
-    fact = 1
-    while n > 0:
-        fact *= n
-        n -= 1
-    return fact
-
-number = int(input("Enter a non-negative integer: "))
-
-if number < 0:
-    print("Factorial is not defined for negative numbers.")
-else:
-    result = factorial(number)
-    print(f"The factorial of {number} is {result}.")
+print(f"The sum of all numbers is {total_sum}.")
